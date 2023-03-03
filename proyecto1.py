@@ -1,3 +1,18 @@
+'''
+Proyecto 1: Maquina de Turing y sucesion de fibonacci
+
+Integrantes:
+  Javier Valle
+  Christopher García
+  Maria Isabel Solano
+  Gabriel Vicente
+  Oscar Estrada
+  Mario De León
+'''
+
+
+import time
+import csv
 from turing_machine import *
 
 def Turing(n): 
@@ -47,40 +62,35 @@ def Turing(n):
 
       action, tapes = next(result)
 
-      #print(tapes)
-
       # Calculando el siguiente número de Fibonacci
       fibonacci_sequence.append(fibonacci_sequence[-1] + fibonacci_sequence[-2])
 
   return fibonacci_sequence
 
 
-n = 10
+# N a calcular de la sucesión de Fibonacci
+# for x in range(0,1000):
+# Description
+start_time = time.time()
+print(f'\n{"─"*124}\n{"─"*50}Bienvenido al PROYECTO 1{"─"*50}\n{"─"*104} Auth. Fans de Paulo\n')
+print(' --> Teniendo en cuenta')
+print('\t*\tLa representacion se da con numeros naturales')
+print('\t*\tEl retorno sera el valor de la posicion solicitada')
+print('\t*\tLas graficas se muestran en el archivo empirical_analysis.ipynb')
+print('\t*\tPara obtener un nuevo valor ejecutar proyecto1.py nuevamente y cambiar el valor n\n')
 
-print(Turing(n))
+n = 1000
 
-# def fibonacci(n):
-#     if n == 0:
-#         return 0
-#     elif n == 1:
-#         return 1
-#     else:
-#         return fibonacci(n-1) + fibonacci(n-2)
+# Impresión de fibonacci
 
-# # Calcular la sucesión de Fibonacci hasta el número n
-# n = 10  # Cambiar este valor para calcular más números
-# fibonacci_sequence = [0, 1]
+print(f'--> Numero Obtenido de la sucesión de Fibonacci: {Turing(n)[-1]}\n')
+end_time = time.time()
 
-# for i in range(n - 1):
-#     # Codificar el número en binario en la cinta de la máquina de Turing
-#     binary_num = bin(fibonacci_sequence[-1])[2:]
-#     tape = '0' + binary_num + '0'
-    
-#     # Ejecutar la máquina de Turing
-#     execute = tm.run(tape)
-#     action, tape = next(execute)
+# Execution time
+execution_time = end_time - start_time
+print("--> El tiempo de ejecución fue:", execution_time, "segundos\n")
 
-#     # Decodificar el número de la cinta de la máquina de Turing
-#     print(str(tape))
-   
-#print(fibonacci_sequence)
+# Agregacion de datos a csv
+with open('datos.csv', mode='a', newline='') as csv_file:
+    writer = csv.writer(csv_file)
+    writer.writerow([n, execution_time])
