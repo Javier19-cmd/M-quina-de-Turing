@@ -47,40 +47,13 @@ def Turing(n):
 
       action, tapes = next(result)
 
-      print(tapes['state'])
-
       # Calculando el siguiente número de Fibonacci
       fibonacci_sequence.append(fibonacci_sequence[-1] + fibonacci_sequence[-2])
 
   return fibonacci_sequence
 
 
-n = 10
+n = 100
 
 print(Turing(n))
 
-# def fibonacci(n):
-#     if n == 0:
-#         return 0
-#     elif n == 1:
-#         return 1
-#     else:
-#         return fibonacci(n-1) + fibonacci(n-2)
-
-# # Calcular la sucesión de Fibonacci hasta el número n
-# n = 10  # Cambiar este valor para calcular más números
-# fibonacci_sequence = [0, 1]
-
-# for i in range(n - 1):
-#     # Codificar el número en binario en la cinta de la máquina de Turing
-#     binary_num = bin(fibonacci_sequence[-1])[2:]
-#     tape = '0' + binary_num + '0'
-    
-#     # Ejecutar la máquina de Turing
-#     execute = tm.run(tape)
-#     action, tape = next(execute)
-
-#     # Decodificar el número de la cinta de la máquina de Turing
-#     print(str(tape))
-   
-#print(fibonacci_sequence)
