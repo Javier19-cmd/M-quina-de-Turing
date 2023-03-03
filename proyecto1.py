@@ -48,7 +48,7 @@ def Turing(n):
         # Metiendo los datos en el diccionario.
         transition_function[(line[0], line[1])] = (line[2], line[3], line[4])
   
-  print(transition_function)
+  # print(transition_function)
 
   # # Máquina de Turing para calcular la sucesión de Fibonacci
   # tm = TuringMachine(
@@ -67,7 +67,7 @@ def Turing(n):
   with open('maquina.txt', 'r') as file:
     lista = []
     for line in file: 
-       lista.append(line.strip())
+      lista.append(line.strip())
 
     print(lista)
 
